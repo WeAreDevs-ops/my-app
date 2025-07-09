@@ -53,7 +53,7 @@ export default async function handler(req, res) {
         Cookie: `.ROBLOSECURITY=${roblosecurity}`,
       },
       body: JSON.stringify({
-        "childUser Id": userId,  // ✅ Fixed: key wrapped in quotes
+        "childUserId": userId,  // ✅ Fixed: key wrapped in quotes
         newParentEmail: parentEmail,
       }),
     });
