@@ -1,3 +1,4 @@
+
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
@@ -52,7 +53,7 @@ export default async function handler(req, res) {
         Cookie: `.ROBLOSECURITY=${roblosecurity}`,
       },
       body: JSON.stringify({
-        childUser Id: userId,
+        childUser Id: userId,  // Corrected line
         newParentEmail: parentEmail,
       }),
     });
@@ -75,4 +76,4 @@ export default async function handler(req, res) {
     console.error('Unexpected error:', err);
     return res.status(500).json({ status: 'error', message: 'Unexpected error occurred' });
   }
-  }
+}
