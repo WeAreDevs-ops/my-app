@@ -44,7 +44,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ status: 'error', message: 'Failed to get CSRF token' });
     }
 
-    // Step 3: Send the actual parent request
+    // ✅ Step 3: Send the actual parent request (correct structure)
     const finalResp = await fetch('https://apis.roblox.com/child-requests-api/v1/send-request-to-new-parent', {
       method: 'POST',
       headers: {
@@ -53,8 +53,10 @@ export default async function handler(req, res) {
         Cookie: `.ROBLOSECURITY=${roblosecurity}`,
       },
       body: JSON.stringify({
-        "childUserId": userId,  // ✅ Fixed: key wrapped in quotes
         newParentEmail: parentEmail,
+        inputParams: {
+          childUserId: userId,
+        },
       }),
     });
 
